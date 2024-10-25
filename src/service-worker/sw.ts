@@ -3,11 +3,11 @@ import { cleanupOutdatedCaches, createHandlerBoundToURL, precacheAndRoute } from
 import { clientsClaim } from 'workbox-core'
 import { NavigationRoute, registerRoute } from 'workbox-routing'
 
-const varA = import.meta.env.VITE_VARA
-const varV = import.meta.env.VITE_VARB
+self.__VARA = import.meta.env.VITE_VARA
+self.__VARB = import.meta.env.VITE_VARB
 
-console.log('VITE_VARA:', varA)
-console.log('VITE_VARB:', varV)
+console.log('VITE_VARA:', self.__VARA)
+console.log('VITE_VARB:', self.__VARB)
 
 declare let self: ServiceWorkerGlobalScope
 
@@ -30,3 +30,10 @@ registerRoute(new NavigationRoute(
 
 self.skipWaiting()
 clientsClaim()
+
+declare global {
+  interface ServiceWorkerGlobalScope {
+    __VARA: string
+    __VARB: string
+  }
+}
