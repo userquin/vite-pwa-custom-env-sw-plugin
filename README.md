@@ -2,7 +2,7 @@
 
 This is a simple example of how to use environment variables in a custom service worker.
 
-The trick is about augmenting the global `ServiceWorkerGlobalScope` interface to declare the environment variables. Check the global scope in the  [service worker]('src/service-worker/sw.ts') file:
+The trick is about augmenting the global `ServiceWorkerGlobalScope` interface to declare the environment variables. Check the global scope in the  [service worker](./src/service-worker/sw.ts) file:
 
 ```ts
 declare global {
